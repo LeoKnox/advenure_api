@@ -22,3 +22,8 @@ class RoomDetailSerializer(serializers.ModelSerializer):
             'length',
             'width',
         ]
+
+class RoomRetrieveUpdateAPIView(serializers.ModelSerializer):
+    lookup_field="id"
+    queryset = Room.objects.all()
+    serializer_class = RoomDetailSerializer
