@@ -1,0 +1,16 @@
+[
+    {
+        "id":1,
+        "room_name": "Entry",
+        "description": "Entrance",
+        "length": 5,
+        "width": 5
+    },
+    {
+        "id":2,
+        "room_name": "Second",
+        "description": "Second Room",
+        "length": 7,
+        "width": 8
+    }
+]
