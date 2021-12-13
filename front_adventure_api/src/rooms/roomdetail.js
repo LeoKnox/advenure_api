@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 
 class RoomDetail extends Component {
     render() {
-    const r = this.props.r
+        const obj = this.props.roomDetail;
         return (
-            <div>
-                <h4>{r.id}</h4>
-                <h4>{r.room_name}</h4>
-                <h4>{r.description}</h4>
-                <h4>{r.length} X {r.width}</h4>
+            <div style={{ color: "yellow", border: "1px solid yellow" }}>
+                <h4>{obj.room_name}</h4>
+                <h5>
+                    {obj.description}
+                </h5>
+                <h5>Length: {obj.length} X Width: {obj.width}</h5>
             </div>
-        )
+        );
     }
 }
 
