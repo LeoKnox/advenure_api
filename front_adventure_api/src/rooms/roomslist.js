@@ -4,7 +4,12 @@ import TestData from './testdata.json';
 class RoomList extends Component {
     render() {
         return(
-            <h5>Room Name Goes Here</h5>
+            <div>
+                {TestData.map( r =>
+                    <h4>{r.room_name}[{r.length}x{r.width}]: {r.description}</h4>
+                    )
+                }
+            </div>
         )
     }
 }
