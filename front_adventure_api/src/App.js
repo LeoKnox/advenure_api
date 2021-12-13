@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import RoomList from './rooms/roomslist'
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
           Web App for Building Rooms
         </p>
         <h2>Adventure API</h2>
+        <RoomList/>
       </header>
     </div>
   );
