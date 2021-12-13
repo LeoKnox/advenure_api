@@ -47,7 +47,7 @@ class RoomList extends Component {
                 {this.state.roomsData.map( item => {
                     return (
                         <h3 key={item.id} onClick={() => this.showRoomDetails(item)}>
-                            {item.room_name}, {item.city}
+                            {item.room_name}
                         </h3>
                     );
                 })}
