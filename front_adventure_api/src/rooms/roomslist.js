@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TestData from './testdata.json';
 import RoomDetail from './roomdetail';
+import RoomForm from './roomform';
 import axios from 'axios';
 
 class RoomList extends Component {
@@ -44,6 +45,9 @@ class RoomList extends Component {
     render() {
         return(
             <div>
+                <div>
+                    <RoomForm />
+                </div>
                 {this.state.roomsData.map( item => {
                     return (
                         <h3 key={item.id} onClick={() => this.showRoomDetails(item)}>
