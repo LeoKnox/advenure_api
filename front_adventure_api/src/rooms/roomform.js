@@ -15,7 +15,17 @@ class RoomForm extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state.room_name)
+        console.log(this.state.room_name);
+        axios
+            .post("http://127.0.0.1:8000/create/", {
+                room_name: this.state.room_name
+            })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     render() {
         const { room_name } = this.state;
