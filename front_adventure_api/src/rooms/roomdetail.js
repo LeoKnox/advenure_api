@@ -24,9 +24,9 @@ class RoomDetail extends Component {
                 <h5>Length: {obj.length} X Width: {obj.width}</h5>
                 <button
                     style={{ backgroundColor: "white" }}
-                    onClick={() => this.roomUpdateDetails()}
+                    onClick={() => this.updateRoomDetails()}
                 >
-                    Button
+                    Update
                 </button>
                 {this.state.showComponent ? <RoomUpdate roomUpdate={obj} /> : null}
             </div>
