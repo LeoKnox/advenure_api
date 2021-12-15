@@ -18,9 +18,8 @@ class RoomList extends Component {
 
     getRoomDetail(item) {
         axios
-            .get("http://127.0.0.1:8000/".concat(item.absolute_url))
+            .get("http://127.0.0.1:8000".concat(item.absolute))
             .then((response) => {
-                console.log(response);
                 this.setState({ room: response.data });
             })
             .catch(function (error) {
