@@ -20,6 +20,9 @@ class RoomListSerializer(serializers.ModelSerializer):
         return reverse('room_detail', args=(obj.pk,))
 
 class RoomDetailSerializer(serializers.ModelSerializer):
+    update = serializers.SerializerMethodField()
+    delete = serializers.SerializerMethodField()
+
     class Meta:
         model = Room
         fields = [
@@ -28,9 +31,12 @@ class RoomDetailSerializer(serializers.ModelSerializer):
             'description',
             'length',
             'width',
+            'update',
+            'delete',
         ]
-
-class RoomRetrieveUpdateAPIView(serializers.ModelSerializer):
-    lookup_field="id"
-    queryset = Room.objects.all()
-    serializer_class = RoomDetailSerializer
+    
+    def get_update(self, obj):
+        return reverse('room_update', args=(obj.pk,))
+    
+    def get_delete(self, obj):
+        return reverse('room_delete', args=(obj.pk,))
