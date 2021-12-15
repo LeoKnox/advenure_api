@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RoomUpdate from './roomupdate';
+import axios from 'axios';
 
 class RoomDetail extends Component {
     constructor(props) {
@@ -8,6 +9,18 @@ class RoomDetail extends Component {
             showComponent: false,
         };
         this.updateRoomDetails = this.updateRoomDetails.bind(this);
+        this.deleteRoom = this.deleteRoom.bind(this);
+    }
+
+    deleteRoom(obj) {
+        console.log(obj);
+        axios.delete("http://127.0.0.1:8000".concat(obj))
+            .then((response) => {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     updateRoomDetails() {
         this.setState({ showComponent: true });
@@ -27,6 +40,12 @@ class RoomDetail extends Component {
                     onClick={() => this.updateRoomDetails()}
                 >
                     Update
+                </button>
+                <button
+                    style={{ backgroundColor: "red" }}
+                    onClick={() => this.deleteRoom(obj.delete)}
+                >
+                    Delete
                 </button>
                 {this.state.showComponent ? <RoomUpdate roomUpdate={obj} /> : null}
             </div>
