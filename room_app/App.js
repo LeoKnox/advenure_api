@@ -6,6 +6,12 @@ export default function App() {
   const myText = "Go build adventures!"
   return (
     <View style={styles.container}>
+      <Image
+        style={styles.torchImage}
+        source={{
+          url: "https://opengameart.org/sites/default/files/Torch_Gif.gif",
+        }}
+      />
       <Text style={styles.baseText}>API Adventure Mobile App</Text>
       <Text style={styles.newText}>{myText}</Text>
       <StatusBar style="auto" />
@@ -27,5 +33,9 @@ const styles = StyleSheet.create({
   },
   newText: {
     color: "red",
-  }
+  },
+  torchImage: {
+    width:320,
+    height: 320,
+  },
 });
