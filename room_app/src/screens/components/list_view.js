@@ -1,4 +1,4 @@
-import React, { Componenet } from "react";
+import React, { Component } from "react";
 import {StyleSheet, View, Text, Button } from "react-native";
 
 class ListView extends Component {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     title: {
-        fonstSize: 36,
+        fontSize: 36,
         marginBottom: 16,
     },
 });
