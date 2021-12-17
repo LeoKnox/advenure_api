@@ -15,7 +15,10 @@ class ListView extends Component {
                 <Text style={styles.baseText}>Room Builder App</Text>
                 <Text style={styles.newText}>{mytext}</Text>
                 <Text style={styles.title}>List of Rooms</Text>
-                <Button title="Room! Click for Details" />
+                <Button
+                    title="Room! Click for Details"
+                    onPress={() => this.props.navigation.navigate("Detail")}
+                />
             </SafeAreaView>
         );
     }

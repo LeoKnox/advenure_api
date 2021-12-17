@@ -1,23 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
-import { CreateStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import ListView from "./src/screens/components/list_view";
+import DetailView from "./src/screens/components/detail_view";
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  const myText = "Go build adventures!"
   return (
-    <SafeAreaView style={styles.container}>
-      <Image
-        style={styles.torchImage}
-        source={{
-          url: "https://opengameart.org/sites/default/files/Torch_Gif.gif",
-        }}
-      />
-      <Text style={styles.baseText}>API Adventure Mobile App</Text>
-      <Text style={styles.newText}>{myText}</Text>
-      <ListView />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={ListView} />
+        <Stack.Screen name="Detail" component={DetailView} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -27,17 +24,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  baseText: {
-    color: "navy",
-    fontSize: 30,
-    fontStyle: "italic",
-  },
-  newText: {
-    color: "red",
-  },
-  torchImage: {
-    width:320,
-    height: 320,
   },
 });
