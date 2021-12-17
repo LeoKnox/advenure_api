@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default screenA;
+export default ScreenA;

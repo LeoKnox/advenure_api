@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default screenC;
+export default ScreenC;
