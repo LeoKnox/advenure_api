@@ -1,11 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { CreateStackNavigator } from "@react-navigation/stack";
+import ListView from "./src/screens/components/list_view";
 
 export default function App() {
   const myText = "Go build adventures!"
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image
         style={styles.torchImage}
         source={{
@@ -14,8 +16,8 @@ export default function App() {
       />
       <Text style={styles.baseText}>API Adventure Mobile App</Text>
       <Text style={styles.newText}>{myText}</Text>
-      <StatusBar style="auto" />
-    </View>
+      <ListView />
+    </SafeAreaView>
   );
 }
 
