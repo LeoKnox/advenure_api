@@ -6,6 +6,10 @@ class DetailView extends Component {
         return (
             <View style={styles.center}>
                 <Text style={styles.title}>Detail of Rooms</Text>
+                <Button
+                    title="Click for Tabs"
+                    onPress={() => this.props.navigation.navigate("Tabs")}
+                />
             </View>
         );
     }
