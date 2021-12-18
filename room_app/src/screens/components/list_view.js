@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {StyleSheet, View, Text, Button, SafeAreaView, Image } from "react-native";
+import {StyleSheet, Text, Button, SafeAreaView, Image } from "react-native";
 
 class ListView extends Component {
     render() {
