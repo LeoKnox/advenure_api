@@ -16,12 +16,14 @@ const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
-renderTabComponents = () => (
-  <Tab.Navigator>
-    <Tab.Screen name="Tab 1" component={TabOne} />
-    <Tab.Screen name="Tab 2" component={TabTwo} />
-  </Tab.Navigator>
-);
+renderTabComponents = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Tab 1" component={TabOne} />
+      <Tab.Screen name="Tab 2" component={TabTwo} />
+    </Tab.Navigator>
+  );
+};
 
 renderScreenComponents = () => {
   <Stack.Navigator>
