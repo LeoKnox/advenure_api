@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
-renderTabComponents = () => {
+const renderTabComponents = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Tab 1" component={TabOne} />
@@ -25,19 +25,21 @@ renderTabComponents = () => {
   );
 };
 
-renderScreenComponents = () => {
+const renderScreenComponents = () => {
+  return (
   <Stack.Navigator>
     <Stack.Screen name="Home" component={ListView} />
     <Stack.Screen name="Detail" component={DetailView} />
-    <Stack.Screen name="Tabs" children={this.renderTabComponents} />
+    <Stack.Screen name="Tabs" children={renderTabComponents} />
   </Stack.Navigator>
+  );
 };
 
 export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator>
-        <Drawer.Screen name="Home" children={this.renderScreenComponents} />
+        <Drawer.Screen name="Home" children={renderScreenComponents} />
         <Drawer.Screen name="Screen A" component={ScreenA} />
         <Drawer.Screen name="Screen B" component={ScreenB} />
         <Drawer.Screen name="Screen C" component={ScreenC} />
