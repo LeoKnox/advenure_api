@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, SafeAreaView, Text, Image, FlatList, Button } from "react-native";
+import { StyleSheet, SafeAreaView, Text, Image, FlatList, TouchableOpacity } from "react-native";
 import client from "./../../api/dungeon";
 
-const ListView = () => {
+const ListView = ({ naviagtion }) => {
     const [data, setData] = useState([]);
 
     const getList = async () => {
@@ -28,15 +28,19 @@ const ListView = () => {
             <FlatList
                 data={data}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (
-                    <Text style={styles.itemText}>
-                        {item.room_name}: {item.description}
-                    </Text>
-                )}
-            />
-            <Button
-                title="Room! Click for Details"
-                onPress={() => this.props.navigation.navigate("Detail")}
+                renderItem={({ item }) => {
+                    (
+                        <TouchableOpacity
+                            onPress={() => {
+                                navigation.navigate("Detail", {objurl: item.absolute, hey: "spooky"});
+                            }}
+                            >
+                            <Text style={styles.itemText}>
+                                {item.room_name}: {item.description}
+                            </Text>
+                        </TouchableOpacity>
+                    );
+                }}
             />
         </SafeAreaView>
     );
