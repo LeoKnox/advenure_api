@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {StyleSheet, Text, Button, SafeAreaView, Image, FlatList } from "react-native";
-import client from "./../../api/client";
+import client from "./../../api/dungeon";
 
 class ListView extends Component {
     constructor(props) {
