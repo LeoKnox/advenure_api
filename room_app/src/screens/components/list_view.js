@@ -1,8 +1,23 @@
 import React, { Component } from "react";
-import {StyleSheet, Text, Button, SafeAreaView, Image } from "react-native";
+import {StyleSheet, Text, Button, SafeAreaView, Image, FlatList } from "react-native";
+import client from "./../../api/client";
 
 class ListView extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+        };
+    }
+
+    componentDidMount() {
+        client.get("/").then((response) => {
+            this.setState({ data: response.data });
+        });
+    }
+
     render() {
+        const { data } = this.state;
         const mytext = "Go Create Rooms!";
         return (
             <SafeAreaView style={styles.center}>
@@ -14,7 +29,15 @@ class ListView extends Component {
                 />
                 <Text style={styles.baseText}>Room Builder App</Text>
                 <Text style={styles.newText}>{mytext}</Text>
-                <Text style={styles.title}>List of Rooms</Text>
+                <FlatList
+                    data={data}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => (
+                        <Text style={styles.itemText}>
+                            {item.room_name}: {item.description}
+                        </Text>
+                    )}
+                />
                 <Button
                     title="Room! Click for Details"
                     onPress={() => this.props.navigation.navigate("Detail")}
@@ -46,6 +69,10 @@ const styles = StyleSheet.create({
         width:320,
         height: 320,
     },
+    itemText: {
+        color: "green",
+        fontSize: 20,
+    }
 });
 
 export default ListView;
