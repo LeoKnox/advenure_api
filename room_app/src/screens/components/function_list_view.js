@@ -30,10 +30,10 @@ const ListView = ({ naviagtion }) => {
                 data={data}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => {
-                    (
+                    return (
                         <TouchableOpacity
                             onPress={() => {
-                                navigation.navigate("Detail", {objurl: item.absolute, hey: "spooky"});
+                                navigation.navigate("Detail", {objurl: item.absolute, hey: "spooky",});
                             }}
                             >
                             <Text style={styles.itemText}>
