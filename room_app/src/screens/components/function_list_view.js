@@ -25,6 +25,7 @@ const ListView = ({ naviagtion }) => {
             />
             <Text style={styles.baseText}>Room Builder App</Text>
             <Text style={styles.newText}>{mytext}</Text>
+            <Text>{data.length} Rooms</Text>
             <FlatList
                 data={data}
                 keyExtractor={(item) => item.id.toString()}
