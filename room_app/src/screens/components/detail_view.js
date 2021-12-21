@@ -1,16 +1,38 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import {StyleSheet, View, Text, Button } from "react-native";
+import client from "./../../api/dungeon"
 
 const DetailView = ({ navigation, route }) => {
+    const [detail, setDetail] = useState("");
     const { objurl } = route.params;
-    const { this_room } = route.params;
+
+    const getDetail = async (url) => {
+        console.log(url);
+        try {
+            const response = await client.get(url);
+            if (!response.ok) {
+                console.log(response);
+                setDetail(response.data);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        getDetail(objurl);
+    }, []);
+
     return (
         <View style={styles.center}>
-            <Text style={styles.title}>{this_room}</Text>
-            <Text style={styles.title}>{objurl}</Text>
+            <Text style={styles.title}>Room: {detail.room_name}</Text>
+            <Text style={styles.title}>Description: {detail.description}</Text>
+            <Text style={styles.Title}>
+                Width: {detail.width} : Length: {detail.length}
+            </Text>
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     center: {
