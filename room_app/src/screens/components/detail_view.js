@@ -1,19 +1,16 @@
 import React, { Component } from "react";
 import {StyleSheet, View, Text, Button } from "react-native";
 
-class DetailView extends Component {
-    render() {
-        return (
-            <View style={styles.center}>
-                <Text style={styles.title}>Detail of Rooms</Text>
-                <Button
-                    title="Click for Tabs"
-                    onPress={() => this.props.navigation.navigate("Tabs")}
-                />
-            </View>
-        );
-    }
-}
+const DetailView = ({ navigation, route }) => {
+    const { objurl } = route.params;
+    const { this_room } = route.params;
+    return (
+        <View style={styles.center}>
+            <Text style={styles.title}>{this_room}</Text>
+            <Text style={styles.title}>{objurl}</Text>
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
     center: {
