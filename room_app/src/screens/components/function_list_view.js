@@ -33,7 +33,7 @@ const ListView = ({ naviagtion }) => {
                     return (
                         <TouchableOpacity
                             onPress={() => {
-                                navigation.navigate("Detail", {objurl: item.absolute, hey: "spooky",});
+                                navigation.navigate("Detail", {objurl: item.absolute, this_room: "dark and dangerous",});
                             }}
                             >
                             <Text style={styles.itemText}>
