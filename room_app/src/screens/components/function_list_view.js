@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, SafeAreaView, Text, Image, FlatList, TouchableOpacity } from "react-native";
 import client from "./../../api/dungeon";
 
-const ListView = ({ naviagtion }) => {
+const ListView = ({ navigation }) => {
     const [data, setData] = useState([]);
 
     const getList = async () => {
