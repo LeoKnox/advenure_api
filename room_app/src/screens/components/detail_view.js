@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {StyleSheet, View, Text, Button } from "react-native";
+import {StyleSheet, View, Text, Image } from "react-native";
 import client from "./../../api/dungeon"
 
 const DetailView = ({ navigation, route }) => {
@@ -25,6 +25,12 @@ const DetailView = ({ navigation, route }) => {
 
     return (
         <View style={styles.center}>
+            <Image
+                style={styles.roomImage}
+                source={{
+                    url: detail.tile,
+                }}
+            />
             <Text style={styles.title}>Room: {detail.room_name}</Text>
             <Text style={styles.title}>Description: {detail.description}</Text>
             <Text style={styles.Title}>
@@ -44,6 +50,11 @@ const styles = StyleSheet.create({
         fontSize: 36,
         marginBottom: 16,
     },
+    roomImage: {
+        width: 200,
+        height: 200,
+        marginBottom: 16,
+    }
 });
 
 export default DetailView;
