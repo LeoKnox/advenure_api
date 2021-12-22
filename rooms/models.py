@@ -6,6 +6,7 @@ class Room(models.Model):
     description = models.TextField(blank=True)
     length = models.IntegerField(default=5)
     width = models.IntegerField(default=5)
+    tile = models.ImageField(upload_to="roomImages", blank=True)
 
     def __str__(self):
         return "{}[{}x{}]: {}".format(self.room_name, self.length, self.width, self.description)
