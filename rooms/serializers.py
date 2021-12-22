@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Room
+from. models import Image
 from rest_framework.reverse import reverse
 
 class RoomListSerializer(serializers.ModelSerializer):
@@ -19,6 +20,11 @@ class RoomListSerializer(serializers.ModelSerializer):
     def get_absolute(self, obj):
         return reverse('room_detail', args=(obj.pk,))
 
+class RoomSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        fields = ['id', 'image', 'image_title', 'uploaded_at']
+        model = Image
+
 class RoomDetailSerializer(serializers.ModelSerializer):
     update = serializers.SerializerMethodField()
     delete = serializers.SerializerMethodField()
@@ -34,6 +40,7 @@ class RoomDetailSerializer(serializers.ModelSerializer):
             'tile',
             'update',
             'delete',
+            'room_images',
         ]
     
     def get_update(self, obj):
