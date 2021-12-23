@@ -37,7 +37,7 @@ class RoomDetailSerializer(serializers.ModelSerializer):
             'description',
             'length',
             'width',
-            'tile',
+            'image',
             'update',
             'delete',
             'room_images',
