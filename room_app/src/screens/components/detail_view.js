@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {StyleSheet, View, Text, Image } from "react-native";
+import {StyleSheet, View, Text, Image, FlatList } from "react-native";
 import client from "./../../api/dungeon"
 
 const DetailView = ({ navigation, route }) => {
@@ -25,10 +25,18 @@ const DetailView = ({ navigation, route }) => {
 
     return (
         <View style={styles.center}>
-            <Image
-                style={styles.roomImage}
-                source={{
-                    url: detail.tile,
+            <FlatList
+                data={detail.room_images}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => {
+                    return (
+                        <Image
+                            style={styles.roomImage}
+                            source={{
+                                uri: item.image,
+                            }}
+                        />
+                    );
                 }}
             />
             <Text style={styles.title}>Room: {detail.room_name}</Text>
@@ -38,7 +46,7 @@ const DetailView = ({ navigation, route }) => {
             </Text>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     center: {
