@@ -26,14 +26,14 @@ const DetailView = ({ navigation, route }) => {
     return (
         <View style={styles.center}>
             <FlatList
-                data={detail.room_images}
+                data={detail.room_image}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => {
                     return (
                         <Image
                             style={styles.roomImage}
                             source={{
-                                uri: item.tile,
+                                uri: item.room_images,
                             }}
                         />
                     );
