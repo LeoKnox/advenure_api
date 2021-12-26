@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {StyleSheet, View, Text, Image, FlatList } from "react-native";
-import client from "./../../api/dungeon"
+import dungeon from "./../../api/dungeon"
 
 const DetailView = ({ navigation, route }) => {
     const [detail, setDetail] = useState("");
@@ -9,7 +9,7 @@ const DetailView = ({ navigation, route }) => {
     const getDetail = async (url) => {
         console.log(url);
         try {
-            const response = await client.get(url);
+            const response = await dungeon.get(url);
             if (!response.ok) {
                 console.log(response);
                 setDetail(response.data);
@@ -33,7 +33,7 @@ const DetailView = ({ navigation, route }) => {
                         <Image
                             style={styles.roomImage}
                             source={{
-                                uri: item.room_images[0].image,
+                                uri: item.room_images,
                             }}
                         />
                     );
