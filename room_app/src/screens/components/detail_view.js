@@ -34,7 +34,7 @@ const DetailView = ({ navigation, route }) => {
                         <Image
                             style={styles.roomImage}
                             source={{
-                                uri: item.room_image,
+                                uri: item.image,
                             }}
                         />
                     );
