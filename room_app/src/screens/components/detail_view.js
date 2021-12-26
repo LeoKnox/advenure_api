@@ -8,6 +8,7 @@ const DetailView = ({ navigation, route }) => {
 
     const getDetail = async (url) => {
         console.log(url);
+        console.log(detail);
         try {
             const response = await dungeon.get(url);
             if (!response.ok) {
@@ -33,7 +34,7 @@ const DetailView = ({ navigation, route }) => {
                         <Image
                             style={styles.roomImage}
                             source={{
-                                uri: item.room_images,
+                                uri: item.room_image,
                             }}
                         />
                     );
