@@ -28,6 +28,7 @@ class ImageSerializer(serializers.HyperlinkedModelSerializer):
 class RoomDetailSerializer(serializers.ModelSerializer):
     update = serializers.SerializerMethodField()
     delete = serializers.SerializerMethodField()
+    room_images = ImageSerializer(many=True)
 
     class Meta:
         model = Room
