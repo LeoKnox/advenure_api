@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {StyleSheet, View, Text, Image, FlatList } from "react-native";
+import {View, Text, Image, FlatList } from "react-native";
 import dungeon from "./../../api/dungeon"
+import styles from "./detail_styles"
 
 const DetailView = ({ navigation, route }) => {
     const [detail, setDetail] = useState("");
@@ -27,6 +28,7 @@ const DetailView = ({ navigation, route }) => {
     return (
         <View style={styles.center}>
             <FlatList
+            horizontal = {true}
                 data={detail.room_images}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => {
@@ -41,29 +43,12 @@ const DetailView = ({ navigation, route }) => {
                 }}
             />
             <Text style={styles.title}>Room: {detail.room_name}</Text>
-            <Text style={styles.title}>Description: {detail.description}</Text>
-            <Text style={styles.Title}>
+            <Text style={styles.details}>{detail.description}</Text>
+            <Text style={styles.details}>
                 Width: {detail.width} : Length: {detail.length}
             </Text>
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    center: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    title: {
-        fontSize: 36,
-        marginBottom: 16,
-    },
-    roomImage: {
-        width: 200,
-        height: 200,
-        marginBottom: 16,
-    }
-});
 
 export default DetailView;
