@@ -20,7 +20,7 @@ class RoomListSerializer(serializers.ModelSerializer):
     def get_absolute(self, obj):
         return reverse('room_detail', args=(obj.pk,))
 
-class RoomSerializer(serializers.HyperlinkedModelSerializer):
+class ImageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         fields = ['id', 'image', 'image_title', 'uploaded_at']
         model = Image
