@@ -26,7 +26,7 @@ const DetailView = ({ navigation, route }) => {
     return (
         <View style={styles.center}>
             <FlatList
-                data={detail.image}
+                data={detail.room_images}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => {
                     return (
