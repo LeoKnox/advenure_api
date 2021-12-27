@@ -18,7 +18,7 @@ const ListView = ({ navigation }) => {
     const mytext = "Go Create Rooms!";
     return (
         <SafeAreaView>
-            <View style={styles.container}>
+            <View style={stylex.container}>
                 <FlatList
                     data={data}
                     keyExtractor={(item) => item.id.toString()}

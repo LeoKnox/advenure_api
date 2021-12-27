@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
-import styles from "../detail_styles";
 
 const Card = ( logo, title, details ) => {
     return (
