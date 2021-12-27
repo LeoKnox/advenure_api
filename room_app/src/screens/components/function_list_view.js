@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, SafeAreaView, Text, Image, FlatList, TouchableOpacity } from "react-native";
+import { StyleSheet, SafeAreaView, View, Text, Image, FlatList, TouchableOpacity } from "react-native";
 import client from "./../../api/dungeon";
 import Card from "./shared/card";
 
@@ -18,7 +18,7 @@ const ListView = ({ navigation }) => {
     const mytext = "Go Create Rooms!";
     return (
         <SafeAreaView>
-            <View style={stylex.container}>
+            <View style={styles.container}>
                 <FlatList
                     data={data}
                     keyExtractor={(item) => item.id.toString()}
