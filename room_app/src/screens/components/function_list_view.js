@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, SafeAreaView, Text, Image, FlatList, TouchableOpacity } from "react-native";
 import client from "./../../api/dungeon";
+import Card from "./shared/card";
 
 const ListView = ({ navigation }) => {
     const [data, setData] = useState([]);
@@ -16,59 +17,38 @@ const ListView = ({ navigation }) => {
 
     const mytext = "Go Create Rooms!";
     return (
-        <SafeAreaView style={styles.center}>
-            <Image
-                style={styles.torchImage}
-                source={{
-                url: "https://opengameart.org/sites/default/files/Torch_Gif.gif",
-                }}
-            />
-            <Text style={styles.baseText}>Room Builder App</Text>
-            <Text style={styles.newText}>{mytext}</Text>
-            <Text>{data.length} Rooms</Text>
-            <FlatList
-                data={data}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => {
-                    return (
-                        <TouchableOpacity
-                            onPress={() => {
-                                navigation.navigate("Detail", {objurl: item.absolute, this_room: "dark and dangerous",});
-                            }}
+        <SafeAreaView>
+            <View style={styles.container}>
+                <FlatList
+                    data={data}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => {
+                        return (
+                            <TouchableOpacity
+                                onPress={() => {
+                                    navigation.navigate("Detail", {objurl: item.absolute, this_room: "dark and dangerous",});
+                                }}
                             >
-                            <Text style={styles.itemText}>
-                                {item.room_name}: {item.description}
-                            </Text>
-                        </TouchableOpacity>
-                    );
-                }}
-            />
+                                <Card
+                                    logo={item.logo_image}
+                                    title={item.room_name}
+                                    details={item.description}
+                                />
+                            </TouchableOpacity>
+                        );
+                    }}
+                />
+            </View>
         </SafeAreaView>
     );
-}
+};
+
 
 const styles = StyleSheet.create({
-    center: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+    container: {
+        backgroundColor: "#eeeeee",
+        padding: 20,
     },
-    title: {
-        fontSize: 36,
-        marginBottom: 16,
-    },
-    baseText: {
-        color: "navy",
-        fontSize: 30,
-        fontStyle: "italic",
-    },
-    newText: {
-        color: "red",
-    },
-    torchImage: {
-        width:320,
-        height: 320,
-    },
-})
+});
 
 export default ListView;
