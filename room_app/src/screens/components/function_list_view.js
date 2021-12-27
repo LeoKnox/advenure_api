@@ -26,11 +26,11 @@ const ListView = ({ navigation }) => {
                         return (
                             <TouchableOpacity
                                 onPress={() => {
-                                    navigation.navigate("Detail", {objurl: item.absolute, this_room: "dark and dangerous",});
+                                    navigation.navigate("Detail", {objurl: item.absolute, });
                                 }}
                             >
                                 <Card
-                                    logo={item.logo_image}
+                                    logo={item.tile}
                                     title={item.room_name}
                                     details={item.description}
                                 />
