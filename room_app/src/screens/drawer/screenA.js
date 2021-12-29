@@ -1,9 +1,13 @@
 import React from "react";
-import {StyleSheet, Image, SafeAreaView, TextInput, Button } from "react-native";
+import {StyleSheet, Text, SafeAreaView, TextInput, Button } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
 const ScreenA = () => {
+    const validationSchema = Yup.object({
+        room_name: Yup.string().max(200, 'Must be at least 200 characters').min(3, 'Must be at least 3 characters').required('Required'),
+        description: Yup.string().max(400, 'Must be less than 400 characters').min(3, 'Must be at lest 3 characters'),
+    })
     return (
         <SafeAreaView>
             <Formik
@@ -11,8 +15,9 @@ const ScreenA = () => {
                 onSubmit={(values) => {
                     alert(JSON.stringify(values, null, 2));
                 }}
+                validationSchema{...validationSchema}
             >
-                {({ handleChange, handleSubmit, values }) => (
+                {({ handleChange, handleSubmit, values, errors }) => (
                     <>
                         <TextInput
                             style={styles.textBox}
@@ -21,12 +26,14 @@ const ScreenA = () => {
                             placeholder="Enter Room Name"
                             onChangeText={handleChange("room_name")}
                         />
+                        <Text style={styles.error}>{errors.room_name}</Text>
                         <TextInput
                             style={styles.textBox}
                             value={values.description}
                             placeholder="Room Description"
                             onChangeText={handleChange("description")}
                         />
+                        <Text style={styles.error}>{errors.description}</Text>
                         <Button onPress={handleSubmit} title="Submit" />
                     </>
                 )}
@@ -36,6 +43,9 @@ const ScreenA = () => {
 };
 
 const styles = StyleSheet.create({
+    error:{
+        color: "red"
+    },
     textBox: {
         marginTop: 50,
         height: 40,
