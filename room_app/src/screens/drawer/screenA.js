@@ -7,7 +7,7 @@ const ScreenA = () => {
     return (
         <SafeAreaView>
             <Formik
-                values={{ room_name: "", description: "" }}
+                initialValues={{ room_name: "", description: "" }}
                 onSubmit={(values) => {
                     alert(JSON.stringify(values, null, 2));
                 }}
@@ -19,13 +19,13 @@ const ScreenA = () => {
                             value={values.room_name}
                             type="text"
                             placeholder="Enter Room Name"
-                            onChangeText={handleChange("room_name")}
+                            onSelect={handleChange("room_name")}
                         />
                         <TextInput
                             style={styles.textBox}
                             value={values.description}
                             placeholder="Room Description"
-                            onChangeText={handleChange("description")}
+                            onSelect={handleChange("description")}
                         />
                         <Button onPress={handleSubmit} title="Submit" />
                     </>
