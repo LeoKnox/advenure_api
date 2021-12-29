@@ -15,7 +15,7 @@ const ScreenA = () => {
                 {({ handleChange, handleSubmit, values }) => (
                     <>
                         <TextInput
-                            syle={styles.textBox}
+                            style={styles.textBox}
                             value={values.room_name}
                             type="text"
                             placeholder="Enter Room Name"
