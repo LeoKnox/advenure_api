@@ -44,7 +44,8 @@ const ScreenA = () => {
 
 const styles = StyleSheet.create({
     error:{
-        color: "red"
+        color: "red",
+        marginLeft: 10,
     },
     textBox: {
         marginTop: 50,
