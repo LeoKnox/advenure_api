@@ -5,8 +5,8 @@ import * as Yup from "yup";
 
 const ScreenA = () => {
     const validationSchema = Yup.object({
-        room_name: Yup.string().max(200, 'Must be at least 200 characters').min(3, 'Must be at least 3 characters').required('Required'),
-        description: Yup.string().max(400, 'Must be less than 400 characters').min(3, 'Must be at lest 3 characters'),
+        room_name: Yup.string().max(200, 'Must be less 200 characters').min(3, 'Must be at least 3 characters').required('Required'),
+        description: Yup.string().max(400, 'Must be less than 400 characters').min(3, 'Must be at least 3 characters'),
     })
     return (
         <SafeAreaView>
