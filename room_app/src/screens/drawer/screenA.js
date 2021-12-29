@@ -19,13 +19,13 @@ const ScreenA = () => {
                             value={values.room_name}
                             type="text"
                             placeholder="Enter Room Name"
-                            onChange={handleChange("room_name")}
+                            onChangeText={handleChange("room_name")}
                         />
                         <TextInput
                             style={styles.textBox}
                             value={values.description}
                             placeholder="Room Description"
-                            onChange={handleChange("description")}
+                            onChangeText={handleChange("description")}
                         />
                         <Button onPress={handleSubmit} title="Submit" />
                     </>
