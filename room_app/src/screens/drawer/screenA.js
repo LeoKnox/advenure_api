@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, Image, SafeAreaView, TextInput, Text } from "react-native";
+import {StyleSheet, Image, SafeAreaView, TextInput, Button } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -7,7 +7,7 @@ const ScreenA = () => {
     return (
         <SafeAreaView>
             <Formik
-                intitialValues={{ room_name: "", description: "" }}
+                let intitialValues={{ room_name: "", description: "" }}
                 onSubmit={(values) => {
                     alert(JSON.stringify(values, null, 2));
                 }}
