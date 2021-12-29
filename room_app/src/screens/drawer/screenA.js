@@ -15,7 +15,7 @@ const ScreenA = () => {
                 onSubmit={(values) => {
                     alert(JSON.stringify(values, null, 2));
                 }}
-                validationSchema{...validationSchema}
+                validationSchema={validationSchema}
             >
                 {({ handleChange, handleSubmit, values, errors }) => (
                     <>
