@@ -7,7 +7,7 @@ const ScreenA = () => {
     return (
         <SafeAreaView>
             <Formik
-                intitialValues={{ room_name: "", description: "" }}
+                values={{ room_name: "", description: "" }}
                 onSubmit={(values) => {
                     alert(JSON.stringify(values, null, 2));
                 }}
