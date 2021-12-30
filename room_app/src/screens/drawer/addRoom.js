@@ -6,10 +6,6 @@ import styles from "./addRoom_styles";
 import validationSchema from "./addRoom_valid";
 
 const addRoom = () => {
-    const validationSchema = Yup.object({
-        room_name: Yup.string().max(200, 'Must be less 200 characters').min(3, 'Must be at least 3 characters').required('Required'),
-        description: Yup.string().max(400, 'Must be less than 400 characters').min(3, 'Must be at least 3 characters'),
-    })
     return (
         <SafeAreaView>
             <Formik
@@ -17,7 +13,6 @@ const addRoom = () => {
                 onSubmit={(values) => {
                     alert(JSON.stringify(values, null, 2));
                 }}
-                validationSchema={validationSchema}
             >
                 {({ handleChange, handleSubmit, values, errors }) => (
                     <>
