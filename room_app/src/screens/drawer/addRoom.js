@@ -32,7 +32,22 @@ const addRoom = () => {
                             onChangeText={handleChange("description")}
                         />
                         <Text style={styles.error}>{errors.description}</Text>
-                        <Button onPress={handleSubmit} title="Submit" />
+                        <TextInput
+                            style={styles.textBox}
+                            value={values.width}
+                            type="text"
+                            placeholder="Width of room"
+                            onChangeText={handleChange("width")}
+                        />
+                        <Text style={styles.error}>{errors.width}</Text>
+                        <TextInput
+                            style={styles.textBox}
+                            value={values.length}
+                            placeholder="Length of room"
+                            onChangeText={handleChange("length")}
+                        />
+                        <Text style={styles.error}>{errors.length}</Text>
+                        <Button style={styles.addButton} onPress={handleSubmit} title="Submit" />
                     </>
                 )}
             </Formik>
