@@ -15,3 +15,5 @@ const validationSchema = Yup.object({
         .max(4, "Cannot be longer then 4 digits")
         .min(1, "Must be at least 1 digit"),
 })
+
+export default validationSchema;

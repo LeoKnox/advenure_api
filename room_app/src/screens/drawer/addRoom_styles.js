@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import validationSchema from "./addRoom_valid";
 
 const styles = StyleSheet.create({
     image: {

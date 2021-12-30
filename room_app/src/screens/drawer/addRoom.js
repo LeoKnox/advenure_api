@@ -13,6 +13,7 @@ const addRoom = () => {
                 onSubmit={(values) => {
                     alert(JSON.stringify(values, null, 2));
                 }}
+                validationSchema={validationSchema}
             >
                 {({ handleChange, handleSubmit, values, errors }) => (
                     <>
