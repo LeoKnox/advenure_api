@@ -2,6 +2,8 @@ import React from "react";
 import {StyleSheet, Text, SafeAreaView, TextInput, Button } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import styles from "./addRoom_styles";
+import validationSchema from "./addRoom_valid";
 
 const addRoom = () => {
     const validationSchema = Yup.object({
@@ -41,20 +43,5 @@ const addRoom = () => {
         </SafeAreaView>
     );
 };
-
-const styles = StyleSheet.create({
-    error:{
-        color: "red",
-        marginLeft: 10,
-    },
-    textBox: {
-        marginTop: 50,
-        height: 40,
-        borderColor: "gray",
-        borderWidth: 1,
-        marginRight: 20,
-        marginLeft: 20,
-    },
-});
 
 export default addRoom;
