@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, Text, SafeAreaView, TextInput, Button } from "react-native";
+import {ScrollView, Text, SafeAreaView, TextInput, Image, Button } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import styles from "./addRoom_styles";
@@ -7,16 +7,20 @@ import validationSchema from "./addRoom_valid";
 
 const addRoom = () => {
     return (
-        <SafeAreaView>
-            <Formik
-                initialValues={{ room_name: "", description: "" }}
-                onSubmit={(values) => {
-                    alert(JSON.stringify(values, null, 2));
-                }}
-                validationSchema={validationSchema}
-            >
-                {({ handleChange, handleSubmit, values, errors }) => (
-                    <>
+        <Formik
+            initialValues={{ room_name: "", description: "", width: "", length: "", }}
+            onSubmit={(values) => {
+                alert(JSON.stringify(values, null, 4));
+            }}
+            validationSchema={validationSchema}
+        >
+            {({ handleChange, handleSubmit, values, errors }) => (
+                <SafeAreaView>
+                    <ScrollView>
+                        <Image
+                            style={styles.image}
+                            source={{ uri: "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/0f/dc/92/0fdc92e4-fbbb-342c-b748-1dae7af44f09/source/256x256bb.jpg"}}
+                        />
                         <TextInput
                             style={styles.textBox}
                             value={values.room_name}
@@ -48,10 +52,10 @@ const addRoom = () => {
                         />
                         <Text style={styles.error}>{errors.length}</Text>
                         <Button style={styles.addButton} onPress={handleSubmit} title="Submit" />
-                    </>
-                )}
-            </Formik>
-        </SafeAreaView>
+                    </ScrollView>
+                </SafeAreaView>
+            )}
+        </Formik>
     );
 };
 
