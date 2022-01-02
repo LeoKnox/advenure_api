@@ -12,7 +12,7 @@ const addRoom = () => {
         data.append("description", values.description);
         data.append("width", values.width);
         data.append("length", values.length);
-        data.append("room_images", []);
+        data.append("room_images", [0]);
 
         client
             .post("/create/", data)
