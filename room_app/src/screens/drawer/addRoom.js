@@ -3,6 +3,7 @@ import {ScrollView, Text, SafeAreaView, TextInput, Image, Button } from "react-n
 import { Formik } from "formik";
 import styles from "./addRoom_styles";
 import validationSchema from "./addRoom_valid";
+import dungeon from "../../api/dungeon";
 
 const addRoom = () => {
     const handleSubmit = async (values) => {
@@ -11,8 +12,8 @@ const addRoom = () => {
         data.append("description", values.description);
         data.append("width", values.width);
         data.append("length", values.length);
-        
-        client
+
+        dungeon
             .post("/create/", data)
             .then(function(response) {
                 console.log(response);
