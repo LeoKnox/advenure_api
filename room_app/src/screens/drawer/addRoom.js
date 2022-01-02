@@ -5,12 +5,13 @@ import styles from "./addRoom_styles";
 import validationSchema from "./addRoom_valid";
 
 const addRoom = () => {
-    const handleSubmit = (values) => {
+    const handleSubmit = async (values) => {
         const data = new FormData();
         data.append("room_name", values.room_name);
         data.append("description", values.description);
         data.append("width", values.width);
         data.append("length", values.length);
+        
         client
             .post("/create/", data)
             .then(function(response) {
