@@ -1,7 +1,6 @@
 import React from "react";
 import {ScrollView, Text, SafeAreaView, TextInput, Image, Button } from "react-native";
 import { Formik } from "formik";
-import * as Yup from "yup";
 import styles from "./addRoom_styles";
 import validationSchema from "./addRoom_valid";
 
