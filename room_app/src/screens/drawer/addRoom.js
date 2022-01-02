@@ -5,16 +5,29 @@ import styles from "./addRoom_styles";
 import validationSchema from "./addRoom_valid";
 
 const addRoom = () => {
+    const handleSubmit = (values) => {
+        const data = new FormData();
+        data.append("room_name", values.room_name);
+        data.append("description", values.description);
+        data.append("width", values.width);
+        data.append("length", values.length);
+        client
+            .post("/create/", data)
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function (response) {
+                console.log(response);
+            });
+    };
     return (
         <Formik
             initialValues={{ room_name: "", description: "", width: "", length: "", }}
-            onSubmit={(values) => {
-                alert(JSON.stringify(values, null, 4));
-            }}
+            onSubmit={handleSubmit}
             validationSchema={validationSchema}
         >
             {({ handleChange, handleSubmit, values, errors }) => (
-                <SafeAreaView>
+                <SafeAreaView style={styles.content}>
                     <ScrollView>
                         <Image
                             style={styles.image}
