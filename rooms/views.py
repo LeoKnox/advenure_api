@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.parsers import MultiPartParser
 from .serializers import RoomListSerializer, RoomDetailSerializer
 from .models import Room
 
@@ -13,6 +14,7 @@ class RoomRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = RoomDetailSerializer
 
 class RoomCreateAPIView(generics.CreateAPIView):
+    parser_classes = [MultiPartParser]
     queryset = Room.objects.all()
     serializer_class = RoomDetailSerializer
 
