@@ -1,15 +1,24 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import {StyleSheet, View, Text } from "react-native";
+import * as ImagePicker from "expo-image-picker";
 
-class ScreenB extends Component {
-    render() {
-        return (
-            <View style={styles.center}>
-                <Text style={styles.title}>Screen B</Text>
-            </View>
-        );
-    }
-}
+const ScreenB = () => {
+    const getPermission = async () => {
+        if (status !== "granted") {
+            alert("Enable camera roll permissions");
+        }
+    };
+
+    useEffect(() => {
+        getPermission();
+    }, []);
+
+    return (
+        <View style={styules.center}>
+            <Text style={styles.title}>Screen B</Text>
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
     center: {
