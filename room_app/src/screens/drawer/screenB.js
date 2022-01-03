@@ -14,7 +14,7 @@ const ScreenB = () => {
     }, []);
 
     return (
-        <View style={styules.center}>
+        <View style={styles.center}>
             <Text style={styles.title}>Screen B</Text>
         </View>
     );
