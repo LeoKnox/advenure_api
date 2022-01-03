@@ -28,7 +28,7 @@ const ScreenB = () => {
     return (
         <View style={styles.center}>
             <Text style={styles.title}>Screen B</Text>
-            <Button title="Select Image" onPress={selectPhoto} />
+            <Button title="Get Image" onPress={selectPhoto} />
         </View>
     );
 };
