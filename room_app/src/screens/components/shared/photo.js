@@ -6,7 +6,7 @@ import styles from "../../drawer/addRoom_styles";
 
 const PhotoPicker = () => {
     const getPermission = async () => {
-        const { status } = await ImagePicker.requestCameraRollPermissionAsny();
+        const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
         if (status !== "granted") {
             alert("Enable camera roll permissions");
         }
@@ -35,20 +35,4 @@ const PhotoPicker = () => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems:"center",
-        backgroundColor: "white"
-    },
-    img: {
-        width: 100,
-        height: 100,
-        marginTop: 20,
-        marginBotom: 20,
-        overflow: "hidden",
-        borderRadius: 10,
-    },
-})
-
 export default PhotoPicker;

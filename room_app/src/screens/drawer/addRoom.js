@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import styles from "./addRoom_styles";
 import validationSchema from "./addRoom_valid";
 import client from "../../api/dungeon";
+import PhotoPicker from "../components/shared/photo.js";
 
 const addRoom = () => {
     const handleSubmit = async (values) => {
@@ -12,7 +13,6 @@ const addRoom = () => {
         data.append("description", values.description);
         data.append("width", values.width);
         data.append("length", values.length);
-        data.append("room_images.room", [0]);
 
         client
             .post("/create/", data)
@@ -32,10 +32,7 @@ const addRoom = () => {
             {({ handleChange, handleSubmit, values, errors }) => (
                 <SafeAreaView style={styles.content}>
                     <ScrollView>
-                        <Image
-                            style={styles.image}
-                            source={{ uri: "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/0f/dc/92/0fdc92e4-fbbb-342c-b748-1dae7af44f09/source/256x256bb.jpg"}}
-                        />
+                        <PhotoPicker photo={""}/>
                         <TextInput
                             style={styles.textBox}
                             value={values.room_name}

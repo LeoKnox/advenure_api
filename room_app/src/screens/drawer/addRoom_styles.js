@@ -32,6 +32,14 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
     },
+    img: {
+        widht: 100,
+        height: 100,
+        marginTop: 20,
+        marginBottom: 20,
+        overflow: "hidden",
+        borderRadius: 10,
+    },
 });
 
 export default styles;
