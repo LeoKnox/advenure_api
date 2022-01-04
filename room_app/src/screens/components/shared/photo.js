@@ -4,7 +4,7 @@ import * as ImagePicker from "expo-image-picker";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import styles from "../../drawer/addRoom_styles";
 
-const PhotoPicker = () => {
+const PhotoPicker = ({photo}) => {
     const getPermission = async () => {
         const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
         if (status !== "granted") {
