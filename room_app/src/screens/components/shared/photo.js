@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { view, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import styles from "../../drawer/addRoom_styles";
