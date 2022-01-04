@@ -20,7 +20,7 @@ const PhotoPicker = ({photo}) => {
             const result = await ImagePicker.launchImageLibraryAsync();
             if (!result.cancelled) selectPhoto(result.uri);
         } catch (error) {
-            alert("Error, try again");
+            alert("Error, try again.");
         }
     };
 
