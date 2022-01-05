@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {ScrollView, Text, SafeAreaView, TextInput, Image, Button } from "react-native";
 import { Formik } from "formik";
 import styles from "./addRoom_styles";
@@ -7,6 +7,7 @@ import client from "../../api/dungeon";
 import PhotoPicker from "../components/shared/photo.js";
 
 const addRoom = () => {
+    const [photo, setPhoto] = useState("");
     const handleSubmit = async (values) => {
         const data = new FormData();
         data.append("room_name", values.room_name);
@@ -32,7 +33,7 @@ const addRoom = () => {
             {({ handleChange, handleSubmit, values, errors }) => (
                 <SafeAreaView style={styles.content}>
                     <ScrollView>
-                        <PhotoPicker photo={""}/>
+                        <PhotoPicker photo={photo} onPressPhoto={(uri) => setPhoto(uri)} />
                         <TextInput
                             style={styles.textBox}
                             value={values.room_name}
