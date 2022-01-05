@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, TouchableWithoutFeedback, Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { SimpleLineIcons } from "@expo/vector-icons";
 
-const PhotoPicker = ({photo}) => {
+const PhotoPicker = ({photo, onPressPhoto}) => {
     const getPermission = async () => {
         const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
         if (status !== "granted") {
@@ -18,20 +18,32 @@ const PhotoPicker = ({photo}) => {
     const selectPhoto = async () => {
         try {
             const result = await ImagePicker.launchImageLibraryAsync();
-            if (!result.cancelled) selectPhoto(result.uri);
+            if (!result.cancelled) onPressPhoto(result.uri);
         } catch (error) {
             alert("Error, try again.");
         }
     };
 
+    const onPress = () => {
+        if (photo == "") selectPhoto();
+        else
+            Alert.alert("Photo", "Would you like to use another photo?",
+            [
+                {text: "Yes", onPress: () => selectPhoto() },
+                {text: "No, don't change!"},
+            ]);
+    };
+
     return (
-        <View style={styles.container}>
-            {photo == "" ? (
-                <SimpleLineIcons name="picture" size={100} color="black" />
-            ) : (
-                <Image style={styles.img} source={{ uri: photo }} />
-            )}
-        </View>
+        <TouchableWithoutFeedback onPress={onPress}>
+            <View style={styles.container}>
+                {photo == "" ? (
+                    <SimpleLineIcons name="gate" size={100} color="black" />
+                ) : (
+                    <Image style={styles.img} source={{ uri: photo }} />
+                )}
+            </View>
+        </TouchableWithoutFeedback>
     );
 };
 
