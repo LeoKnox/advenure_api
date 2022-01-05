@@ -14,6 +14,11 @@ const addRoom = () => {
         data.append("description", values.description);
         data.append("width", values.width);
         data.append("length", values.length);
+        data.append("tile", {
+            uri: photo,
+            name: "filename.jpg",
+            type: "image/jpg",
+        });
 
         client
             .post("/create/", data)
