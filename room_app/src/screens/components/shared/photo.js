@@ -38,7 +38,7 @@ const PhotoPicker = ({photo, onPressPhoto}) => {
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.container}>
                 {photo == "" ? (
-                    <SimpleLineIcons name="gate" size={100} color="black" />
+                    <SimpleLineIcons name="picture" size={100} color="black" />
                 ) : (
                     <Image style={styles.img} source={{ uri: photo }} />
                 )}
