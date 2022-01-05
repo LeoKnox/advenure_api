@@ -20,14 +20,11 @@ const addRoom = () => {
             type: "image/jpg",
         });
 
-        client
-            .post("/create/", data)
-            .then(function(response) {
-                console.log(response);
-            })
-            .catch(function (response) {
-                console.log(response);
-            });
+        try {
+            const response = await client.post("/create/", data)
+        } catch(error) {
+            console.log(response);
+        }
     };
     return (
         <Formik
