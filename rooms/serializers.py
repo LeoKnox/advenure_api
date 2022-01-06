@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import Room
 from. models import Image
 from rest_framework.reverse import reverse
-from django.core.files.base import base64
 
 class RoomListSerializer(serializers.ModelSerializer):
     absolute = serializers.SerializerMethodField()
