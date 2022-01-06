@@ -16,7 +16,8 @@ const PhotoPicker = ({photo, onPressPhoto}) => {
     }, []);
 
     const onPress = () => {
-        if (photo == "") selectPhoto();
+        if (photo == "")
+            selectPhoto()
         else
             Alert.alert("Photo", "Would you like to use another photo?",
             [
