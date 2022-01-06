@@ -15,15 +15,6 @@ const PhotoPicker = ({photo, onPressPhoto}) => {
         getPermission();
     }, []);
 
-    const selectPhoto = async () => {
-        try {
-            const result = await ImagePicker.launchImageLibraryAsync();
-            if (!result.cancelled) onPressPhoto(result.uri);
-        } catch (error) {
-            alert("Error, try again.");
-        }
-    };
-
     const onPress = () => {
         if (photo == "") selectPhoto();
         else
@@ -32,6 +23,15 @@ const PhotoPicker = ({photo, onPressPhoto}) => {
                 {text: "Yes", onPress: () => selectPhoto() },
                 {text: "No, don't change!"},
             ]);
+    };
+
+    const selectPhoto = async () => {
+        try {
+            const result = await ImagePicker.launchImageLibraryAsync();
+            if (!result.cancelled) onPressPhoto(result.uri);
+        } catch (error) {
+            alert("Error, try again.");
+        }
     };
 
     return (

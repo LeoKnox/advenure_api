@@ -28,7 +28,7 @@ const addRoom = () => {
     };
     return (
         <Formik
-            initialValues={{ room_name: "", description: "", width: "", length: "", }}
+            initialValues={{ room_name: "", description: "", width: "", length: "",}}
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
         >
