@@ -14,7 +14,8 @@ class RoomListSerializer(serializers.ModelSerializer):
             'description',
             'width',
             'length',
-            'absolute'
+            'absolute',
+            'tile',
         ]
 
     def get_absolute(self, obj):
